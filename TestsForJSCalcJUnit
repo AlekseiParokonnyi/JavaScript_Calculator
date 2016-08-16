@@ -1,0 +1,446 @@
+import org.junit.*;
+import static org.junit.Assert.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class TestsForJSCalc
+{
+  static WebDriver driver;
+ 
+  @BeforeClass
+  public static void ClassSetUp() throws Exception
+  {
+	driver = new FirefoxDriver();
+	driver.get("file:///D:/Alex/learning/JavaHillel/CalcTab.html");
+  }
+  
+  @Before
+  public void setUp() throws Exception
+  {
+	driver.navigate().refresh();
+  }
+  
+  @AfterClass
+  public static void classTearDown() throws Exception
+  {
+	  driver.close();
+  }
+  
+  //==============================================================================
+  //Existense
+  //==============================================================================
+  
+  @Test
+  public void testCalc1_1() throws Exception
+  {
+	  driver.findElement(By.id("btn1"));
+  }
+  
+  @Test
+  public void testCalc1_2() throws Exception
+  {
+	  driver.findElement(By.id("btn2"));
+  }
+  
+  @Test
+  public void testCalc1_3() throws Exception
+  {
+	  driver.findElement(By.id("btn3"));
+  }
+  
+  @Test
+  public void testCalc1_4() throws Exception
+  {
+	  driver.findElement(By.id("btn4"));
+  }
+  
+  @Test
+  public void testCalc1_5() throws Exception
+  {
+	  driver.findElement(By.id("btn5"));
+  }
+  
+  @Test
+  public void testCalc1_6() throws Exception
+  {
+	  driver.findElement(By.id("btn6"));
+  }
+  
+  @Test
+  public void testCalc1_7() throws Exception
+  {
+	  driver.findElement(By.id("btn7"));
+  }
+  
+  @Test
+  public void testCalc1_8() throws Exception
+  {
+	  driver.findElement(By.id("btn8"));
+  }
+  
+  @Test
+  public void testCalc1_9() throws Exception
+  {
+	  driver.findElement(By.id("btn9"));
+  }
+  
+  @Test
+  public void testCalc1_0() throws Exception
+  {
+	  driver.findElement(By.id("btn0"));
+  }
+  
+  @Test
+  public void testCalc1_Clear() throws Exception
+  {
+	  driver.findElement(By.id("btnC"));
+  }
+  
+  @Test
+  public void testCalc1_Div() throws Exception
+  {
+	  driver.findElement(By.id("btnDiv"));
+  }
+  
+  @Test
+  public void testCalc1_Mult() throws Exception
+  {
+	  driver.findElement(By.id("btnMult"));
+  }
+  
+  @Test
+  public void testCalc1_Min() throws Exception
+  {
+	  driver.findElement(By.id("btnMin"));
+  }
+  
+  @Test
+  public void testCalc1_Plus() throws Exception
+  {
+	  driver.findElement(By.id("btnPlus"));
+  }
+  
+  @Test
+  public void testCalc1_Eq() throws Exception
+  {
+	  driver.findElement(By.id("btnEq"));
+  }
+  
+  @Test
+  public void testCalc1_Display() throws Exception
+  {
+	  driver.findElement(By.id("text"));
+  }
+  
+  //==============================================================================
+  //Simple check
+  //==============================================================================
+  
+  @Test
+  public void testCalcTest2_1() throws Exception
+  { 
+	  driver.findElement(By.id("btn1")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("1", act);
+  }
+  
+  @Test
+  public void testCalcTest2_2() throws Exception
+  { 
+	  driver.findElement(By.id("btn2")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("2", act);
+  }
+  
+  @Test
+  public void testCalcTest2_3() throws Exception
+  { 
+	  driver.findElement(By.id("btn3")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("3", act);
+  }
+  
+  @Test
+  public void testCalcTest2_4() throws Exception
+  { 
+	  driver.findElement(By.id("btn4")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("4", act);
+  }
+  
+  @Test
+  public void testCalcTest2_5() throws Exception
+  { 
+	  driver.findElement(By.id("btn5")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("5", act);
+  }
+  
+  @Test
+  public void testCalcTest2_6() throws Exception
+  { 
+	  driver.findElement(By.id("btn6")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("6", act);
+  }
+  
+  @Test
+  public void testCalcTest2_7() throws Exception
+  { 
+	  driver.findElement(By.id("btn7")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("7", act);
+  }
+  
+  @Test
+  public void testCalcTest2_8() throws Exception
+  { 
+	  driver.findElement(By.id("btn8")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("8", act);
+  }
+  
+  @Test
+  public void testCalcTest2_9() throws Exception
+  { 
+	  driver.findElement(By.id("btn9")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("9", act);
+  }
+  
+  @Test
+  public void testCalcTest2_0() throws Exception
+  { 
+	  driver.findElement(By.id("btn0")).click();	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("0", act);
+  }
+  
+  //==============================================================================
+  //Complex check
+  //==============================================================================
+  
+  @Test
+  public void testCalcTest3_1() throws Exception
+  { 
+	  driver.findElement(By.id("btn1")).click();
+	  driver.findElement(By.id("btn1")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("11", act);
+  }
+  
+  
+  @Test
+  public void testCalcTest3_2() throws Exception
+  { 
+	  driver.findElement(By.id("btn2")).click();
+	  driver.findElement(By.id("btn2")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("22", act);
+  }
+  
+  @Test
+  public void testCalcTest3_3() throws Exception
+  { 
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("33", act);
+  }
+  
+  @Test
+  public void testCalcTest3_4() throws Exception
+  { 
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("44", act);
+  }
+  
+  @Test
+  public void testCalcTest3_5() throws Exception
+  { 
+	  driver.findElement(By.id("btn5")).click();
+	  driver.findElement(By.id("btn5")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("55", act);
+  }
+  
+  @Test
+  public void testCalcTest3_6() throws Exception
+  { 
+	  driver.findElement(By.id("btn6")).click();
+	  driver.findElement(By.id("btn6")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("66", act);
+  }
+  
+  @Test
+  public void testCalcTest3_7() throws Exception
+  { 
+	  driver.findElement(By.id("btn7")).click();
+	  driver.findElement(By.id("btn7")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("77", act);
+  }
+  
+  @Test
+  public void testCalcTest3_8() throws Exception
+  { 
+	  driver.findElement(By.id("btn8")).click();
+	  driver.findElement(By.id("btn8")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("88", act);
+  }
+  
+  @Test
+  public void testCalcTest3_9() throws Exception
+  { 
+	  driver.findElement(By.id("btn9")).click();
+	  driver.findElement(By.id("btn9")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("99", act);
+  }
+  
+  @Test
+  public void testCalcTest3_0() throws Exception
+  { 
+	  driver.findElement(By.id("btn0")).click();
+	  driver.findElement(By.id("btn0")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("00", act);
+  }
+  
+  @Test
+  public void testCalcTest3_111() throws Exception
+  { 
+	  driver.findElement(By.id("btn1")).click();
+	  driver.findElement(By.id("btn1")).click();
+	  driver.findElement(By.id("btn1")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("111", act);
+  }
+  
+  @Test
+  public void testCalcTest3_2222() throws Exception
+  { 
+	  driver.findElement(By.id("btn2")).click();
+	  driver.findElement(By.id("btn2")).click();
+	  driver.findElement(By.id("btn2")).click();
+	  driver.findElement(By.id("btn2")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("2222", act);
+  }
+  
+  @Test
+  public void testCalcTest3_33333() throws Exception
+  { 
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("33333", act);
+  }
+  
+  @Test
+  public void testCalcTest3_444444() throws Exception
+  { 
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("444444", act);
+  }
+  
+  @Test
+  public void testCalcTest3_0123456789() throws Exception
+  { 
+	  driver.findElement(By.id("btn0")).click();
+	  driver.findElement(By.id("btn1")).click();
+	  driver.findElement(By.id("btn2")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn5")).click();
+	  driver.findElement(By.id("btn6")).click();
+	  driver.findElement(By.id("btn7")).click();
+	  driver.findElement(By.id("btn8")).click();
+	  driver.findElement(By.id("btn9")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("0123456789", act);
+  }
+  
+  @Test
+  public void testCalcTest3_9876543210() throws Exception
+  { 
+	  driver.findElement(By.id("btn9")).click();
+	  driver.findElement(By.id("btn8")).click();
+	  driver.findElement(By.id("btn7")).click();
+	  driver.findElement(By.id("btn6")).click();
+	  driver.findElement(By.id("btn5")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btn2")).click();
+	  driver.findElement(By.id("btn1")).click();
+	  driver.findElement(By.id("btn0")).click();
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("9876543210", act);
+  }
+  
+  //==============================================================================
+  //Real life
+  //==============================================================================
+  
+  @Test
+  public void testCalcTest1Dev() throws Exception
+  { 
+	  driver.findElement(By.id("btn8")).click();
+	  driver.findElement(By.id("btnDiv")).click();
+	  driver.findElement(By.id("btn4")).click();
+	  driver.findElement(By.id("btnEq")).click();
+	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("2", act);
+  }
+
+  @Test
+  public void testCalcTest1Mult() throws Exception
+  {
+	  driver.findElement(By.id("btn2")).click();
+	  driver.findElement(By.id("btnMult")).click();
+	  driver.findElement(By.id("btn9")).click();
+	  driver.findElement(By.id("btnEq")).click();
+	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("18", act);
+  }
+  
+  @Test
+  public void testCalcTest1Min() throws Exception
+  { 
+	  driver.findElement(By.id("btn7")).click();
+	  driver.findElement(By.id("btnMin")).click();
+	  driver.findElement(By.id("btn3")).click();
+	  driver.findElement(By.id("btnEq")).click();
+	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("4", act);
+  }
+  
+  @Test
+  public void testCalcTest1Plus() throws Exception
+  {
+	  driver.findElement(By.id("btn6")).click();
+	  driver.findElement(By.id("btnPlus")).click();
+	  driver.findElement(By.id("btn5")).click();
+	  driver.findElement(By.id("btnEq")).click();
+	  
+	  String act = driver.findElement(By.id("text")).getAttribute("value");
+	  assertEquals("11", act);
+  }  
+}
