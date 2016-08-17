@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title>Calculator</title>
+	</head>
+
+	<body>
+		<form>
+			<table>
+				<tr>
+					<input id="text"        type="text"   value=""                          style="width:215px; height:30px">
+				</tr>
+
+				<tr>
+					<td><input id="btn7"    type="button" value="7" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btn8"    type="button" value="8" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btn9"    type="button" value="9" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btnDiv"  type="button" value="/" onclick="oper(this);"   class="cButton"></td>
+				</tr>
+
+				<tr>
+					<td><input id="btn4"    type="button" value="4" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btn5"    type="button" value="5" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btn6"    type="button" value="6" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btnMult" type="button" value="*" onclick="oper(this);"   class="cButton"></td>
+				</tr>
+
+				<tr>
+					<td><input id="btn1"    type="button" value="1" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btn2"    type="button" value="2" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btn3"    type="button" value="3" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btnMin"  type="button" value="-" onclick="oper(this);"   class="cButton"></td>
+				</tr>
+
+				<tr>
+					<td><input id="btnC"    type="button" value="C" onclick="cClear(this);" class="cButton"></td>
+					<td><input id="btn0"    type="button" value="0" onclick="numb(this);"   class="cButton"></td>
+					<td><input id="btnEq"   type="button" value="=" onclick="oper(this);"   class="cButton"></td>
+					<td><input id="btnPlus" type="button" value="+" onclick="oper(this);"   class="cButton"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+
+	<style type="text/css">
+		.cButton {
+			width:              50px;
+			height:             50px;
+			display:            inline-block;
+			font-family:        arial,sans-serif;
+			font-size:          16px;
+			font-weight:        bold;
+			color:              rgb(10,68,68);
+			text-decoration:    none;
+			user-select:        none;
+			padding:            .2em 1.2em;
+			outline:            none;
+			border:             1px solid rgba(0,0,0,.1);
+			border-radius:      2px;
+			background:         rgb(100,200,10) linear-gradient(#91e842, #91e842);
+			background:	    #bce0ee;
+			-webkit-box-shadow: 2px 2px 2px rgba(100, 200, 0, 0.7);
+			-moz-box-shadow:    2px 2px 2px rgba(100, 200, 200, 0.7);
+			box-shadow:         2px 2px 2px rgba(100, 200, 200, 0.7);
+			transition:         all .218s ease 0s;
+		}
+		.cButton:active {
+			color:              rgb(51,51,51);
+			border:             1px solid rgb(204,204,204);
+			background:         rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+			background:	    #3584a1;
+			box-shadow:         0 1px 2px rgba(0,0,0,.1) inset;
+		}
+	</style>
+
+	<script type="text/javascript">
+		var val1;
+		var op;
+		var mark = true;
+
+		function numb(btn)
+		{
+			if(mark)
+			{
+				text.value += btn.value;
+			}
+			else
+			{
+				text.value = btn.value;
+				mark = true;
+			}
+		}
+
+		function oper(btn)
+		{
+			if(btn.value == "=")
+			{
+				var num1 = parseInt( val1 );
+				var num2 = parseInt( text.value );
+				text.value = calc(num1, num2, op);
+				mark = false;
+			}
+			else
+			{
+				val1 = text.value;
+				op = btn.value;
+				mark = false;
+			}	
+		}
+
+		function calc(num1, num2, op)
+		{
+			var res = 0;
+			
+			switch (op)
+			{
+				case "+": res = num1 + num2; break;
+				case "-": res = num1 - num2; break;
+				case "*": res = num1 * num2; break;
+				case "/": res = num1 / num2; break;
+			}
+			return res;
+		}
+		
+		function cClear(btn)
+		{
+			text.value = "";
+			val1 = "";
+			op = "";
+			mark = true;
+		}
+
+	</script>
+</html>
